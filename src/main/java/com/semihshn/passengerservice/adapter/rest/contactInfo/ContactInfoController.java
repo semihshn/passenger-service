@@ -5,6 +5,7 @@ import com.semihshn.passengerservice.adapter.rest.contactInfo.response.ContactIn
 import com.semihshn.passengerservice.adapter.rest.contactInfo.response.ContactInformationResponse;
 import com.semihshn.passengerservice.domain.contactInfo.ContactInfoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,6 +21,12 @@ public class ContactInfoController {
     public ContactInfoCreateResponse create(@RequestBody @Valid ContactInfoCreateRequest request) {
         Long createdContactId = contactInformationService.create(request.convertToContactInformation());
         return ContactInfoCreateResponse.builder().id(createdContactId).build();
+    }
+
+    @DeleteMapping("{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long userId) {
+        contactInformationService.delete(userId);
     }
 
     @GetMapping("{contactId}")

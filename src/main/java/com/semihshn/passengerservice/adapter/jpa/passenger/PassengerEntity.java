@@ -1,6 +1,7 @@
 package com.semihshn.passengerservice.adapter.jpa.passenger;
 
 import com.semihshn.passengerservice.adapter.jpa.common.BaseEntity;
+import com.semihshn.passengerservice.adapter.jpa.common.Status;
 import com.semihshn.passengerservice.adapter.jpa.contactInfo.ContactInfoEntity;
 import com.semihshn.passengerservice.domain.passenger.Passenger;
 import lombok.Getter;
@@ -31,6 +32,7 @@ public class PassengerEntity extends BaseEntity {
         passengerEntity.firstName= passenger.getFirstName();
         passengerEntity.lastName=passenger.getLastName();
         passengerEntity.birhDate=passenger.getBirhDate();
+        passengerEntity.status= Status.ACTIVE;
         return passengerEntity;
     }
 

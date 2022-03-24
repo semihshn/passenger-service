@@ -5,6 +5,7 @@ import com.semihshn.passengerservice.adapter.rest.passenger.response.PassengerCr
 import com.semihshn.passengerservice.adapter.rest.passenger.response.PassengerResponse;
 import com.semihshn.passengerservice.domain.passenger.PassengerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,6 +20,12 @@ public class PassengerController {
     public PassengerCreateResponse create(@RequestBody @Valid PassengerCreateRequest request) {
         Long createdPassengerId = passengerService.create(request.convertToPassenger());
         return PassengerCreateResponse.builder().id(createdPassengerId).build();
+    }
+
+    @DeleteMapping("{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long userId) {
+        passengerService.delete(userId);
     }
 
     @GetMapping("{passengerId}")

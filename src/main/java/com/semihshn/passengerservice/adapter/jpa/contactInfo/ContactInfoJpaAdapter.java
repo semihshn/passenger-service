@@ -1,5 +1,6 @@
 package com.semihshn.passengerservice.adapter.jpa.contactInfo;
 
+import com.semihshn.passengerservice.adapter.jpa.common.Status;
 import com.semihshn.passengerservice.adapter.jpa.passenger.PassengerEntity;
 import com.semihshn.passengerservice.domain.contactInfo.ContactInfo;
 import com.semihshn.passengerservice.domain.exception.ExceptionType;
@@ -22,6 +23,15 @@ public class ContactInfoJpaAdapter implements ContactInfoPort {
         return contactInformationJpaRepository.save(ContactInfoEntity
                 .from(contactInformation,passengerEntity))
                 .toModel();
+    }
+
+    @Override
+    public void delete(Long id) {
+        contactInformationJpaRepository.findById(id)
+                .ifPresent(user -> {
+                    user.setStatus(Status.DELETED);
+                    contactInformationJpaRepository.save(user);
+                });
     }
 
     @Override

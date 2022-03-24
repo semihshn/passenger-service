@@ -22,4 +22,8 @@ public class ContactInfoService {
     public ContactInfo retrieve(Long id) {
         return contactInformationPort.retrieve(id);
     }
+
+    public void delete(Long id) {
+        contactInformationPort.delete(id);
+    }
 }

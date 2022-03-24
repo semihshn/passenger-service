@@ -1,5 +1,6 @@
 package com.semihshn.passengerservice.adapter.jpa.passenger;
 
+import com.semihshn.passengerservice.adapter.jpa.common.Status;
 import com.semihshn.passengerservice.domain.exception.ExceptionType;
 import com.semihshn.passengerservice.domain.exception.SemDataNotFoundException;
 import com.semihshn.passengerservice.domain.passenger.Passenger;
@@ -15,6 +16,15 @@ public class PassengerJpaAdapter implements PassengerPort {
     @Override
     public Passenger create(Passenger passenger) {
         return passengerJpaRepository.save(PassengerEntity.from(passenger)).toModel();
+    }
+
+    @Override
+    public void delete(Long id) {
+        passengerJpaRepository.findById(id)
+                .ifPresent(user -> {
+                    user.setStatus(Status.DELETED);
+                    passengerJpaRepository.save(user);
+                });
     }
 
     @Override

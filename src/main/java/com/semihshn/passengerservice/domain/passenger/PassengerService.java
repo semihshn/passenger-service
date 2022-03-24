@@ -17,4 +17,8 @@ public class PassengerService {
     public Passenger retrieve(Long id) {
         return passengerPort.retrieve(id);
     }
+
+    public void delete(Long id) {
+        passengerPort.delete(id);
+    }
 }

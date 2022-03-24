@@ -1,5 +1,6 @@
 package com.semihshn.passengerservice.adapter.jpa.contactInfo;
 
+import com.semihshn.passengerservice.adapter.jpa.common.Status;
 import com.semihshn.passengerservice.adapter.jpa.passenger.PassengerEntity;
 import com.semihshn.passengerservice.adapter.jpa.common.BaseEntity;
 import com.semihshn.passengerservice.domain.contactInfo.ContactInfo;
@@ -27,6 +28,7 @@ public class ContactInfoEntity extends BaseEntity {
         contactInformationEntity.type= contactInformation.getType();
         contactInformationEntity.address=contactInformation.getAddress();
         contactInformationEntity.passenger=passenger;
+        contactInformationEntity.status= Status.ACTIVE;
         return contactInformationEntity;
     }
 
