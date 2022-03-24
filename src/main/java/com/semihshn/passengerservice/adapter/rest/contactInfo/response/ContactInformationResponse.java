@@ -1,6 +1,6 @@
-package com.semihshn.passengerservice.adapter.rest.contactInformation.response;
+package com.semihshn.passengerservice.adapter.rest.contactInfo.response;
 
-import com.semihshn.passengerservice.domain.contactInformation.ContactInformation;
+import com.semihshn.passengerservice.domain.contactInfo.ContactInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +15,7 @@ public class ContactInformationResponse {
     private String type;
     private String address;
 
-    public static ContactInformationResponse from(ContactInformation contact) {
+    public static ContactInformationResponse from(ContactInfo contact) {
         return ContactInformationResponse.builder()
                 .id(contact.getId())
                 .type(contact.getType())

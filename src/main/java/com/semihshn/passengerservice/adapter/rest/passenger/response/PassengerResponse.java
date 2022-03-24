@@ -1,7 +1,5 @@
 package com.semihshn.passengerservice.adapter.rest.passenger.response;
 
-import com.semihshn.passengerservice.adapter.rest.contactInformation.response.ContactInformationResponse;
-import com.semihshn.passengerservice.domain.contactInformation.ContactInformation;
 import com.semihshn.passengerservice.domain.passenger.Passenger;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

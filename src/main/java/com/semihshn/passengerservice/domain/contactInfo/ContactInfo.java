@@ -1,4 +1,4 @@
-package com.semihshn.passengerservice.domain.contactInformation;
+package com.semihshn.passengerservice.domain.contactInfo;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class ContactInformation {
+public class ContactInfo {
 
     private Long id;
     private Long passengerId;

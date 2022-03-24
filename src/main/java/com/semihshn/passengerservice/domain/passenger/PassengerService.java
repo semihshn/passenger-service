@@ -1,7 +1,5 @@
 package com.semihshn.passengerservice.domain.passenger;
 
-import com.semihshn.passengerservice.domain.contactInformation.ContactInformation;
-import com.semihshn.passengerservice.domain.port.ContactInformationPort;
 import com.semihshn.passengerservice.domain.port.PassengerPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

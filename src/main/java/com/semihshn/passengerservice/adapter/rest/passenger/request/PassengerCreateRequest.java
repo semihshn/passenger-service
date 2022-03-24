@@ -1,13 +1,10 @@
 package com.semihshn.passengerservice.adapter.rest.passenger.request;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.semihshn.passengerservice.domain.contactInformation.ContactInformation;
 import com.semihshn.passengerservice.domain.passenger.Passenger;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter

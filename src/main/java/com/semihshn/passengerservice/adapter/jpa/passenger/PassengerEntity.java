@@ -1,9 +1,7 @@
 package com.semihshn.passengerservice.adapter.jpa.passenger;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.semihshn.passengerservice.adapter.jpa.common.BaseEntity;
-import com.semihshn.passengerservice.adapter.jpa.contactInformation.ContactInformationEntity;
-import com.semihshn.passengerservice.domain.contactInformation.ContactInformation;
+import com.semihshn.passengerservice.adapter.jpa.contactInfo.ContactInfoEntity;
 import com.semihshn.passengerservice.domain.passenger.Passenger;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +23,7 @@ public class PassengerEntity extends BaseEntity {
     private LocalDate birhDate;
 
     @OneToMany(mappedBy = "passenger")
-    private List<ContactInformationEntity> contactInformationEntities;
+    private List<ContactInfoEntity> contactInformationEntities;
 
     public static PassengerEntity from(Passenger passenger) {
         PassengerEntity passengerEntity = new PassengerEntity();

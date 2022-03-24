@@ -1,8 +1,8 @@
-package com.semihshn.passengerservice.adapter.jpa.contactInformation;
+package com.semihshn.passengerservice.adapter.jpa.contactInfo;
 
 import com.semihshn.passengerservice.adapter.jpa.passenger.PassengerEntity;
 import com.semihshn.passengerservice.adapter.jpa.common.BaseEntity;
-import com.semihshn.passengerservice.domain.contactInformation.ContactInformation;
+import com.semihshn.passengerservice.domain.contactInfo.ContactInfo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Setter
 @Entity(name = "contact_informations")
 @Table(name = "contact_informations")
-public class ContactInformationEntity extends BaseEntity {
+public class ContactInfoEntity extends BaseEntity {
 
     private String type;
     private String address;
@@ -22,16 +22,16 @@ public class ContactInformationEntity extends BaseEntity {
     @ManyToOne
     private PassengerEntity passenger;
 
-    public static ContactInformationEntity from(ContactInformation contactInformation, PassengerEntity passenger) {
-        ContactInformationEntity contactInformationEntity = new ContactInformationEntity();
+    public static ContactInfoEntity from(ContactInfo contactInformation, PassengerEntity passenger) {
+        ContactInfoEntity contactInformationEntity = new ContactInfoEntity();
         contactInformationEntity.type= contactInformation.getType();
         contactInformationEntity.address=contactInformation.getAddress();
         contactInformationEntity.passenger=passenger;
         return contactInformationEntity;
     }
 
-    public ContactInformation toModel() {
-        return ContactInformation.builder()
+    public ContactInfo toModel() {
+        return ContactInfo.builder()
                 .id(id)
                 .type(type)
                 .address(address)

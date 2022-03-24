@@ -1,6 +1,6 @@
-package com.semihshn.passengerservice.adapter.rest.contactInformation.request;
+package com.semihshn.passengerservice.adapter.rest.contactInfo.request;
 
-import com.semihshn.passengerservice.domain.contactInformation.ContactInformation;
+import com.semihshn.passengerservice.domain.contactInfo.ContactInfo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
-public class ContactInformationCreateRequest {
+public class ContactInfoCreateRequest {
 
     @NotNull
     private Long passengerId;
@@ -20,8 +20,8 @@ public class ContactInformationCreateRequest {
     @NotBlank
     private String address;
 
-    public ContactInformation convertToContactInformation() {
-        return ContactInformation.builder()
+    public ContactInfo convertToContactInformation() {
+        return ContactInfo.builder()
                 .type(type)
                 .address(address)
                 .passengerId(passengerId)
