@@ -8,4 +8,6 @@ public interface PassengerPort {
     void delete(Long id);
 
     Passenger retrieve(Long id);
+
+    Passenger retrieveByUserId(Long userId);
 }

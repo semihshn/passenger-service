@@ -32,4 +32,9 @@ public class PassengerController {
     public PassengerResponse retrieve(@PathVariable Long passengerId) {
         return PassengerResponse.from(passengerService.retrieve(passengerId));
     }
+
+    @GetMapping("{userId}")
+    public PassengerResponse retrieveByUserId(@PathVariable Long userId) {
+        return PassengerResponse.from(passengerService.retrieveByUserId(userId));
+    }
 }

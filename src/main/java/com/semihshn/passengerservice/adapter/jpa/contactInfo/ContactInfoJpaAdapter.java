@@ -18,10 +18,10 @@ public class ContactInfoJpaAdapter implements ContactInfoPort {
     @Override
     public ContactInfo create(ContactInfo contactInformation, Passenger passenger) {
 
-        PassengerEntity passengerEntity=PassengerEntity.from(passenger);
+        PassengerEntity passengerEntity = PassengerEntity.from(passenger);
 
         return contactInformationJpaRepository.save(ContactInfoEntity
-                .from(contactInformation,passengerEntity))
+                        .from(contactInformation, passengerEntity))
                 .toModel();
     }
 

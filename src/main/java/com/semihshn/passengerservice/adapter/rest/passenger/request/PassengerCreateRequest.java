@@ -5,11 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 public class PassengerCreateRequest {
+
+    @NotNull
+    private Long userId;
 
     @NotBlank
     private String firstName;
@@ -21,6 +25,7 @@ public class PassengerCreateRequest {
 
     public Passenger convertToPassenger() {
         return Passenger.builder()
+                .userId(userId)
                 .firstName(firstName)
                 .lastName(lastName)
                 .birhDate(birhDate)

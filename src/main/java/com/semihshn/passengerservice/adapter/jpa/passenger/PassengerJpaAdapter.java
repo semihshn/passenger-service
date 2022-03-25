@@ -33,8 +33,20 @@ public class PassengerJpaAdapter implements PassengerPort {
                 .toModel();
     }
 
+    @Override
+    public Passenger retrieveByUserId(Long userId) {
+        return retrievePassengerEntityByUserId(userId)
+                .toModel();
+    }
+
     private PassengerEntity retrievePassengerEntity(Long id) {
         return passengerJpaRepository.findById(id)
                 .orElseThrow(() -> new SemDataNotFoundException(ExceptionType.PASSENGER_DATA_NOT_FOUND));
     }
+
+    private PassengerEntity retrievePassengerEntityByUserId(Long id) {
+        return passengerJpaRepository.findByUserId(id)
+                .orElseThrow(() -> new SemDataNotFoundException(ExceptionType.PASSENGER_DATA_NOT_FOUND));
+    }
+
 }

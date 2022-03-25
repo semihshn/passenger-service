@@ -10,12 +10,16 @@ public class PassengerService {
     private final PassengerPort passengerPort;
 
     public Long create(Passenger passenger) {
-        Passenger temp=passengerPort.create(passenger);
+        Passenger temp = passengerPort.create(passenger);
         return temp.getId();
     }
 
     public Passenger retrieve(Long id) {
         return passengerPort.retrieve(id);
+    }
+
+    public Passenger retrieveByUserId(Long id) {
+        return passengerPort.retrieveByUserId(id);
     }
 
     public void delete(Long id) {

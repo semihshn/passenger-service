@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PassengerResponse {
     private Long id;
+    private Long userId;
     private String firstName;
     private String lastName;
     private LocalDate birhDate;
@@ -21,6 +22,7 @@ public class PassengerResponse {
     public static PassengerResponse from(Passenger passenger) {
         return PassengerResponse.builder()
                 .id(passenger.getId())
+                .userId(passenger.getUserId())
                 .firstName(passenger.getFirstName())
                 .lastName(passenger.getLastName())
                 .birhDate(passenger.getBirhDate())

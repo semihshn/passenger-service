@@ -25,10 +25,10 @@ public class ContactInfoEntity extends BaseEntity {
 
     public static ContactInfoEntity from(ContactInfo contactInformation, PassengerEntity passenger) {
         ContactInfoEntity contactInformationEntity = new ContactInfoEntity();
-        contactInformationEntity.type= contactInformation.getType();
-        contactInformationEntity.address=contactInformation.getAddress();
-        contactInformationEntity.passenger=passenger;
-        contactInformationEntity.status= Status.ACTIVE;
+        contactInformationEntity.type = contactInformation.getType();
+        contactInformationEntity.address = contactInformation.getAddress();
+        contactInformationEntity.passenger = passenger;
+        contactInformationEntity.status = Status.ACTIVE;
         return contactInformationEntity;
     }
 

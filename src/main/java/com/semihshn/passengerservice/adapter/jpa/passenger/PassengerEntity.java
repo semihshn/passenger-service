@@ -19,6 +19,7 @@ import java.util.List;
 @Table(name = "passengers")
 public class PassengerEntity extends BaseEntity {
 
+    private Long userId;
     private String firstName;
     private String lastName;
     private LocalDate birhDate;
@@ -28,17 +29,19 @@ public class PassengerEntity extends BaseEntity {
 
     public static PassengerEntity from(Passenger passenger) {
         PassengerEntity passengerEntity = new PassengerEntity();
-        passengerEntity.id=passenger.getId();
-        passengerEntity.firstName= passenger.getFirstName();
-        passengerEntity.lastName=passenger.getLastName();
-        passengerEntity.birhDate=passenger.getBirhDate();
-        passengerEntity.status= Status.ACTIVE;
+        passengerEntity.id = passenger.getId();
+        passengerEntity.userId=passenger.getUserId();
+        passengerEntity.firstName = passenger.getFirstName();
+        passengerEntity.lastName = passenger.getLastName();
+        passengerEntity.birhDate = passenger.getBirhDate();
+        passengerEntity.status = Status.ACTIVE;
         return passengerEntity;
     }
 
     public Passenger toModel() {
         return Passenger.builder()
                 .id(id)
+                .userId(userId)
                 .firstName(firstName)
                 .lastName(lastName)
                 .birhDate(birhDate)

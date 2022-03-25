@@ -14,8 +14,8 @@ public class ContactInfoService {
     private final PassengerPort passengerPort;
 
     public Long create(ContactInfo contactInformation) {
-        Passenger passenger=passengerPort.retrieve(contactInformation.getPassengerId());
-        ContactInfo temp=contactInformationPort.create(contactInformation,passenger);
+        Passenger passenger = passengerPort.retrieve(contactInformation.getPassengerId());
+        ContactInfo temp = contactInformationPort.create(contactInformation, passenger);
         return temp.getId();
     }
 
