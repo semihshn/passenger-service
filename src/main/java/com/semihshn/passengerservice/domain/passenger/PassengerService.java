@@ -19,6 +19,7 @@ public class PassengerService {
     }
 
     public Passenger retrieveByUserId(Long id) {
+
         return passengerPort.retrieveByUserId(id);
     }
 
