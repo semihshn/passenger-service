@@ -1,7 +1,7 @@
 package com.semihshn.passengerservice.adapter.api.config;
 
 import com.google.gson.Gson;
-import com.semihshn.passengerservice.adapter.api.retrofit.IPaymentService;
+import com.semihshn.passengerservice.adapter.api.payment.PaymentRequest;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,12 +46,12 @@ public class RetrofitConfiguration {
     }
 
     @Bean
-    public IPaymentService paymentServiceRequest(Retrofit.Builder secureKeyBuilder,
-                                                 @Value("${payment.service.url}") String baseUrl)
+    public PaymentRequest paymentServiceRequest(Retrofit.Builder secureKeyBuilder,
+                                                @Value("${payment.service.url}") String baseUrl)
     {
         return secureKeyBuilder
                 .baseUrl(baseUrl)
                 .build()
-                .create(IPaymentService.class);
+                .create(PaymentRequest.class);
     }
 }

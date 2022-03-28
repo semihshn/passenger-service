@@ -1,15 +1,14 @@
 package com.semihshn.passengerservice.domain.port;
 
 import com.google.gson.JsonElement;
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Path;
+import com.semihshn.passengerservice.domain.api.Payment;
+import com.semihshn.passengerservice.domain.passenger.Passenger;
 
 public interface PaymentPort {
 
-    Call<JsonElement> savePayment(@Body JsonElement requestBody);
+    JsonElement savePayment(Payment payment);
 
-    Call<Void> deletePayment(@Path("paymentId") Long paymentId);
+    void deletePayment(Long paymentId);
 
-    Call<JsonElement> getPaymentById(@Path("paymentId") Long paymentId);
+    JsonElement getPaymentById(Long paymentId);
 }

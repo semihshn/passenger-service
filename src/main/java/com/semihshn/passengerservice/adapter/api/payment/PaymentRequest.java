@@ -1,11 +1,10 @@
-package com.semihshn.passengerservice.adapter.api.retrofit;
+package com.semihshn.passengerservice.adapter.api.payment;
 
 import com.google.gson.JsonElement;
-import com.semihshn.passengerservice.domain.port.PaymentPort;
 import retrofit2.Call;
 import retrofit2.http.*;
 
-public interface IPaymentService extends PaymentPort {
+public interface PaymentRequest {
 
     @POST("/api/payments")
     Call<JsonElement> savePayment(@Body JsonElement requestBody);
