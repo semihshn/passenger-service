@@ -6,10 +6,9 @@ import com.semihshn.passengerservice.adapter.jpa.contactInfo.ContactInfoEntity;
 import com.semihshn.passengerservice.domain.passenger.Passenger;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -17,12 +16,13 @@ import java.util.List;
 @Setter
 @Entity(name = "passengers")
 @Table(name = "passengers")
+@Where(clause = "status <> 'DELETED'")
 public class PassengerEntity extends BaseEntity {
 
     private Long userId;
     private String firstName;
     private String lastName;
-    private LocalDate birhDate;
+    private LocalDate birthDate;
 
     @OneToMany(mappedBy = "passenger")
     private List<ContactInfoEntity> contactInformationEntities;
@@ -33,7 +33,7 @@ public class PassengerEntity extends BaseEntity {
         passengerEntity.userId=passenger.getUserId();
         passengerEntity.firstName = passenger.getFirstName();
         passengerEntity.lastName = passenger.getLastName();
-        passengerEntity.birhDate = passenger.getBirhDate();
+        passengerEntity.birthDate = passenger.getBirhDate();
         passengerEntity.status = Status.ACTIVE;
         return passengerEntity;
     }
@@ -44,7 +44,7 @@ public class PassengerEntity extends BaseEntity {
                 .userId(userId)
                 .firstName(firstName)
                 .lastName(lastName)
-                .birhDate(birhDate)
+                .birhDate(birthDate)
                 .build();
     }
 }

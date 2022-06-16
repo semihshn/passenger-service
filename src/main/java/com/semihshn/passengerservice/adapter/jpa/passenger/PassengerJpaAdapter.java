@@ -19,8 +19,8 @@ public class PassengerJpaAdapter implements PassengerPort {
     }
 
     @Override
-    public void delete(Long id) {
-        passengerJpaRepository.findById(id)
+    public void delete(Long passengerId) {
+        passengerJpaRepository.findById(passengerId)
                 .ifPresent(user -> {
                     user.setStatus(Status.DELETED);
                     passengerJpaRepository.save(user);
