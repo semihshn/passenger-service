@@ -1,6 +1,5 @@
 package com.semihshn.passengerservice.domain.api;
 
-import com.google.gson.JsonElement;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

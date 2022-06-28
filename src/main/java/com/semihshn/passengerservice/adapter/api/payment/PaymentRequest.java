@@ -1,17 +1,22 @@
 package com.semihshn.passengerservice.adapter.api.payment;
 
-import com.google.gson.JsonElement;
-import retrofit2.Call;
-import retrofit2.http.*;
+import com.semihshn.passengerservice.adapter.api.FeignConfiguration;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.*;
 
+@FeignClient(value = "payment-service"//Name of payment-service application
+        , path = "/api/payments"//Pre-path for payment-service
+        , url = "${payment.service.url}"
+        , configuration = FeignConfiguration.class
+)
 public interface PaymentRequest {
 
-    @POST("/api/payments")
-    Call<JsonElement> savePayment(@Body JsonElement requestBody);
+    @PostMapping
+    Object savePayment(@RequestBody Object requestBody);
 
-    @DELETE("/api/payments/{paymentId}")
-    Call<Void> deletePayment(@Path("paymentId") Long paymentId);
+    @DeleteMapping("{paymentId}")
+    void deletePayment(@PathVariable("paymentId") Long paymentId);
 
-    @GET("/api/payments/{paymentId}")
-    Call<JsonElement> getPaymentById(@Path("paymentId") Long paymentId);
+    @GetMapping("{paymentId}")
+    Object getPaymentById(@PathVariable("paymentId") Long paymentId);
 }

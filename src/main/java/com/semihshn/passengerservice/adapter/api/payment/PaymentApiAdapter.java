@@ -1,25 +1,19 @@
 package com.semihshn.passengerservice.adapter.api.payment;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.semihshn.passengerservice.adapter.api.retrofit.RetrofitUtil;
 import com.semihshn.passengerservice.domain.api.Payment;
-import com.semihshn.passengerservice.domain.passenger.Passenger;
 import com.semihshn.passengerservice.domain.port.PaymentPort;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
-
 @Service
+@RequiredArgsConstructor
 public class PaymentApiAdapter implements PaymentPort {
 
-    @Autowired
-    private PaymentRequest paymentServiceRequest;
+    private final PaymentRequest paymentServiceRequest;
 
     @Override
-    public JsonElement savePayment(Payment payment) {
-        return RetrofitUtil.executeInBlock(paymentServiceRequest.savePayment(new Gson().toJsonTree(payment)));
+    public Object savePayment(Payment payment) {
+        return paymentServiceRequest.savePayment(payment);
     }
 
     @Override
@@ -28,7 +22,7 @@ public class PaymentApiAdapter implements PaymentPort {
     }
 
     @Override
-    public JsonElement getPaymentById(Long paymentId) {
+    public Object getPaymentById(Long paymentId) {
         return null;
     }
 }
