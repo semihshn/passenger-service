@@ -10,6 +10,6 @@ FROM mcr.microsoft.com/java/jre:17-zulu-alpine
 WORKDIR /app
 COPY --from=compiler /usr/src/app/target/passenger-service-0.0.2-SNAPSHOT.jar .
 
-ENTRYPOINT ["java", "-jar", "passenger-service-0.0.2-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "passenger-service-0.0.2-SNAPSHOT.jar"]
 
 EXPOSE 4444
