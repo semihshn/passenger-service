@@ -4,10 +4,12 @@ import com.semihshn.passengerservice.domain.api.Payment;
 import com.semihshn.passengerservice.domain.port.PassengerPort;
 import com.semihshn.passengerservice.domain.port.PaymentPort;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class PassengerService {
@@ -16,6 +18,7 @@ public class PassengerService {
 
     public Long create(Passenger passenger) {
 
+        log.info("payment creating...");
         paymentPort.savePayment(
                 Payment.builder()
                         .userId(1L)
